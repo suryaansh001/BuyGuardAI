@@ -1,0 +1,190 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Agent Commerce Gateway — cyberpunk fintech design system.
+ * All colors are oklch semantic tokens. Never hardcode colors in components.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-buyer: var(--buyer);
+  --color-merchant: var(--merchant);
+  --color-approved: var(--approved);
+  --color-blocked: var(--blocked);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-chart-1: var(--buyer);
+  --color-chart-2: var(--approved);
+  --color-chart-3: var(--merchant);
+  --color-chart-4: var(--blocked);
+  --color-chart-5: var(--muted-foreground);
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.17 0.021 260);
+  --foreground: oklch(0.96 0.005 250);
+  --surface: oklch(0.21 0.023 260);
+  --surface-2: oklch(0.25 0.025 260);
+  --card: oklch(0.21 0.023 260);
+  --card-foreground: oklch(0.96 0.005 250);
+  --popover: oklch(0.2 0.023 260);
+  --popover-foreground: oklch(0.96 0.005 250);
+  --primary: oklch(0.85 0.15 197);
+  --primary-foreground: oklch(0.17 0.021 260);
+  --secondary: oklch(0.27 0.026 260);
+  --secondary-foreground: oklch(0.96 0.005 250);
+  --muted: oklch(0.27 0.026 260);
+  --muted-foreground: oklch(0.68 0.022 258);
+  --accent: oklch(0.3 0.03 260);
+  --accent-foreground: oklch(0.96 0.005 250);
+  --destructive: oklch(0.64 0.23 26);
+  --destructive-foreground: oklch(0.98 0.005 250);
+  --border: oklch(0.98 0.01 250 / 12%);
+  --input: oklch(0.98 0.01 250 / 14%);
+  --ring: oklch(0.85 0.15 197);
+
+  --buyer: oklch(0.85 0.15 197);
+  --merchant: oklch(0.82 0.17 82);
+  --approved: oklch(0.88 0.21 158);
+  --blocked: oklch(0.64 0.23 26);
+
+  --glow-buyer: 0 0 0 1px color-mix(in oklab, var(--buyer) 40%, transparent),
+    0 0 28px -6px color-mix(in oklab, var(--buyer) 55%, transparent);
+  --glow-merchant: 0 0 0 1px color-mix(in oklab, var(--merchant) 40%, transparent),
+    0 0 28px -6px color-mix(in oklab, var(--merchant) 55%, transparent);
+  --glow-approved: 0 0 0 1px color-mix(in oklab, var(--approved) 40%, transparent),
+    0 0 28px -6px color-mix(in oklab, var(--approved) 55%, transparent);
+  --glow-blocked: 0 0 0 1px color-mix(in oklab, var(--blocked) 45%, transparent),
+    0 0 28px -6px color-mix(in oklab, var(--blocked) 55%, transparent);
+  --gradient-grid: linear-gradient(
+    to right,
+    color-mix(in oklab, var(--foreground) 5%, transparent) 1px,
+    transparent 1px
+  );
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--buyer) 35%, transparent);
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in oklab, var(--foreground) 14%, transparent);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+@utility glass {
+  background-color: color-mix(in oklab, var(--foreground) 4%, transparent);
+  backdrop-filter: blur(16px);
+  border: 1px solid color-mix(in oklab, var(--foreground) 10%, transparent);
+}
+
+@utility glow-buyer {
+  box-shadow: var(--glow-buyer);
+}
+@utility glow-merchant {
+  box-shadow: var(--glow-merchant);
+}
+@utility glow-approved {
+  box-shadow: var(--glow-approved);
+}
+@utility glow-blocked {
+  box-shadow: var(--glow-blocked);
+}
+
+@utility grid-backdrop {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--foreground) 4%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--foreground) 4%, transparent) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+@utility text-glow-buyer {
+  text-shadow: 0 0 18px color-mix(in oklab, var(--buyer) 60%, transparent);
+}
+
+@keyframes acg-pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in oklab, currentColor 45%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 10px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+@utility pulse-ring {
+  animation: acg-pulse-ring 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes acg-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@utility shimmer {
+  background-image: linear-gradient(
+    100deg,
+    transparent 20%,
+    color-mix(in oklab, var(--foreground) 22%, transparent) 50%,
+    transparent 80%
+  );
+  background-size: 200% 100%;
+  animation: acg-shimmer 2.2s linear infinite;
+}

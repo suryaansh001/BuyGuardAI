@@ -1,0 +1,47 @@
+# Backend environment and secrets
+.env
+.env.*
+!.env.example
+*.local
+
+# Python environments and generated files
+.venv/
+venv/
+env/
+.python-version
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# Frontend dependencies and build output
+node_modules/
+dist/
+dist-ssr/
+.output/
+.vinxi/
+.tanstack/
+.nitro/
+.wrangler/
+
+# Logs and local tooling
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.vscode/
+.idea/
+.DS_Store
+
+# AI-generated planning and prompt notes
+/blueprint.md
+/broken-fix.md
+/broken-fix-agent-architecture.md
+/topic_explanations.md
+**/prompt.md
